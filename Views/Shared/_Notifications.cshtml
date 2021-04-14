@@ -1,0 +1,46 @@
+﻿@using MVC_Rocky_Utility
+
+<style>
+    .toast-success {
+        background-color: #51A351;
+    }
+</style>
+
+@if (TempData[WC.Success] != null) //See demo: https://codeseven.github.io/toastr/demo.html
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('@TempData[WC.Success]')
+
+    </script>
+}
+
+@if (TempData[WC.Error] != null)
+{
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript">
+        toastr.error('@TempData[WC.Error]')
+</script>
+}
+
+
